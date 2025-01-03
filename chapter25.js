@@ -167,16 +167,124 @@
 
 
 // Question 10 Sleep
-async function sleep(millis) {
-    return new Promise((resolve, reject) => {
-        setTimeout(() => {
-            resolve()
-        }, millis)
-    })
-}
+// async function sleep(millis) {
+//     return new Promise((resolve, reject) => {
+//         setTimeout(() => {
+//             resolve()
+//         }, millis)
+//     })
+// }
 
-let t = Date.now()
+// let t = Date.now()
 
-sleep(100).then(() => console.log(Date.now() - t))
+// sleep(100).then(() => console.log(Date.now() - t))
 
 
+// Question 11 Is Object Empty
+// var obj = { "x": 4, "y": 5 }
+// var isEmpty = function (obj) {
+//     // apply for-in loop to iterate through the object
+//     var flag = true;
+//     for (const item in obj) {
+//         console.log(`${item} : ${obj[item]}`);
+//         flag = false;
+//     }
+
+//     return flag
+// };
+// console.log(isEmpty(obj));
+
+
+//Question 12 chunk Array
+// arr = [1, 2, 3, 4, 5]    //output = [[1,2,3],[4,5]]
+// size = 1
+// var chunk = function (arr, size) {
+//     let result = [];
+//     let length = arr.length;
+
+//     let temp = [];
+//     for (let i = 0; i < length; i++) {  
+//         console.log(`element pushed in to temp array : ${arr[i]}`);         
+//         temp.push(arr[i])
+//         if (temp.length === size) {
+//             result.push(temp)
+//             temp = [];
+//         }
+//     };
+//     if(temp.length!==0){
+//         result.push(temp)
+//     }
+
+//     console.log(result);
+
+// };
+// chunk(arr,size)
+
+
+//Question 13 Array Prototype Last
+// Array.prototype.last = function () {
+//     if (this.length === 0) {
+//         return -1;
+//     }
+
+//     return this[this.length - 1];
+// };
+
+
+//  const arr = [1, 2, 3];
+//  console.log(arr.last());
+
+
+// Question 14 Grouped By
+
+// Array.prototype.groupBy = function (fn) {
+//     let result = {};
+//     this.forEach((item) => {
+//         let id = fn(item)
+//         if (!result[id]) {
+//             result[id] = []
+//         }
+//         result[id].push(item)
+//     })
+
+//     console.log(result);
+
+// };
+
+// [1, 2, 3].groupBy(String)   // {"1":[1],"2":[2],"3":[3]}
+
+
+// Question 15 Join Two Array by ID
+// arr1 = [
+//     { "id": 1, "x": 2, "y": 3 },
+//     { "id": 2, "x": 3, "y": 6 }
+// ],
+//     arr2 = [
+//         { "id": 2, "x": 10, "y": 20 },
+//         { "id": 3, "x": 0, "y": 0 }
+//     ]
+// arr1 = [
+//     {"id": 1, "b": {"b": 94},"v": [4, 3], "y": 48}
+// ]
+// arr2 = [
+//     {"id": 1, "b": {"c": 84}, "v": [1, 3]}
+// ]
+// var join = function (arr1, arr2) {
+//     let joinedArray = [];
+//     joinedArray = [...arr1]
+//     console.log(joinedArray);
+//     arr2.forEach((item) => {
+//         console.log(item);
+//         const existIndex = joinedArray.findIndex((ele) => ele.id === item.id)
+//         console.log(existIndex);
+//         if (existIndex !== -1) {
+//             joinedArray[existIndex] = { ...item }
+//         }
+//         else {
+//             joinedArray.push({ ...item })
+//         }
+//         console.log(joinedArray);
+//     });
+
+// };
+// join(arr1, arr2);
