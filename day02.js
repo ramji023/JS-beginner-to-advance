@@ -35,14 +35,14 @@
 // exercise 03 - Asynchronous Series Executor
 
 // <----triggers all tasks simultaneously---->
-const tasks = [
-    (cb) => setTimeout(() => cb('Task 1 complete'), 3000),
-    (cb) => setTimeout(() => cb('Task 2 complete'), 2000),
-    (cb) => setTimeout(() => cb('Task 3 complete'), 1000),
-]
+// const tasks = [
+//     (cb) => setTimeout(() => cb('Task 1 complete'), 3000),
+//     (cb) => setTimeout(() => cb('Task 2 complete'), 2000),
+//     (cb) => setTimeout(() => cb('Task 3 complete'), 1000),
+// ]
 console.log(tasks);
 
-function executeInSeries(tasks, callback) {
+function executeSimultaneously(tasks, callback) {
     tasks.forEach((task) => {
         task(callback);
     })
@@ -50,7 +50,36 @@ function executeInSeries(tasks, callback) {
 function results(data) {
     console.log(data);
 }
-executeInSeries(tasks, results);
+executeSimultaneously(tasks, results);
 
 // <------ execute the tasks in series   ------>
+const tasks = [
+    (cb) => setTimeout(() => cb('Task 1 complete'), 3000),
+    (cb) => setTimeout(() => cb('Task 2 complete'), 2000),
+    (cb) => setTimeout(() => cb('Task 3 complete'), 1000),
+];
 
+function executeInSeries(tasks, finalCallback) {
+    let index = 0;
+    const results = [];
+
+    function runTask() {
+        if (index < tasks.length) {
+            tasks[index]((result) => {
+                results.push(result);
+                index++;
+                runTask();
+            });
+        } else {
+            finalCallback(results); // All tasks done
+        }
+    }
+
+    runTask();
+}
+
+function resultsHandler(data) {
+    console.log(data);
+}
+
+executeInSeries(tasks, resultsHandler);
