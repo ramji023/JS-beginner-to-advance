@@ -185,28 +185,4 @@
 
 
 
-// function func1(callback) {
-//     console.log("task 1 is started")
-//     callback()
-// }
-
-// function func2() {
-//     console.log("task 1 is completed")
-// }
-
-// func1(func2);
-
-
-// function func1(callback) {
-//     console.log("task 1 is started")
-//     callback()
-// }
-
-// function func2(callback) {
-//     console.log("task 1 is completed")
-//     callback()
-// }
-
-// func1(()=>func2(()=>console.log("task 2 started..")));
-
  
