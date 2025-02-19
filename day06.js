@@ -42,3 +42,14 @@ var date_02 = new Date("2025-11-19"); // Future date
 var diff = date_02 - date_01;  // Subtracting two Date objects directly works!
 
 console.log(diff);  // Output in milliseconds
+
+
+
+
+const today = new Date()
+	// calculate day
+	const todayday = { weekday: 'long' }
+	const dayName = today.toLocaleDateString('en-us', todayday)  // Monday
+	// calculate date
+	const todayDate = { month: 'long', day: '2-digit', year: 'numeric' } // November 12, 2025
+	const date = today.toLocaleDateString('en-us', todayDate)
